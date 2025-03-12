@@ -1,0 +1,80 @@
+/* Estilos para a seção de contato */
+.contato {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: auto;
+  margin: 0 auto;
+  padding: 8rem 10rem;
+  background-color: #cfd8ec5e;
+  box-shadow: 0 -4px 6px -4px rgba(0, 0, 0, 0.3),
+    0 4px 6px -4px rgba(0, 0, 0, 0.3);
+}
+
+.contato-conteudo {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  max-width: 50%;
+}
+
+.contato-conteudo h4 {
+  font-size: 2rem;
+  color: #2850a0;
+  margin-bottom: 1rem;
+  font-weight: 600;
+  text-align: center;
+}
+
+.contato-conteudo p {
+  font-size: 1rem;
+  color: #333;
+  line-height: 1.5;
+}
+
+.contato .formulario {
+  flex: 1;
+  max-width: 50%;
+  margin-left: 3rem;
+  width: 100%;
+}
+
+.contato-link{
+  background-color: #ffa535;
+  border: none;
+  color: white;
+  border-radius: 24px;
+  font-size: 0.9rem;
+  font-weight: bold;
+  margin-top: 2.5rem;
+  justify-content: center;
+  padding: 1rem;
+  cursor: pointer;
+  transition: opacity 0.5s ease;
+  opacity: 1;
+  text-decoration: none;
+  width: 60%;
+  text-align: center;
+}
+
+.contato-link:hover {
+  opacity: 0.8;
+  background-color: rgba(255, 181, 106, 0.976);
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+  .contato {
+    flex-direction: column;
+  }
+
+  .contato-conteudo,
+  .contato .formulario {
+    max-width: 100%;
+    padding-right: 0;
+    margin-bottom: 2rem;
+  }
+}

@@ -1,0 +1,116 @@
+.header {
+  width: 100%;
+  height: 30vh;
+  position: relative;
+}
+
+.header-email {
+  background: #374a6f;
+}
+
+.header-email div {
+  width: 100%;
+  display: flex;
+  justify-content: end;
+  padding-right: 10rem;
+}
+.header-telefone {
+  filter: invert(1);
+}
+
+.header-email a {
+  display: flex;
+  padding: 0.5rem;
+  font-size: 0.7rem;
+  font-weight: 200;
+  color: white;
+  flex-direction: row-reverse;
+  gap: 8px;
+  text-decoration: none;
+  align-items: center;
+}
+
+.header-email a img {
+  display: flex;
+  width: 15px;
+  height: 15px;
+}
+
+.header-menu {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  width: 100%;
+  height: 25%;
+  z-index: 10;
+  background-color: #5d6f93;
+}
+
+.header-menu img {
+  height: 100px;
+  width: auto;
+  margin: 0;
+  flex-shrink: 0;
+ 
+}
+
+.header-menu-links ul {
+  display: flex;
+  gap: 20px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  width: 70%;
+  align-self: center;
+}
+
+.header-menu-links a {
+  padding-left: 3rem;
+  font-weight: bold;
+  cursor: pointer;
+  color: white;
+  transition: transform 0.5s ease;
+  font-size: 0.8rem;
+  text-decoration: none;
+  list-style: none;
+}
+
+.header-menu-links a:hover {
+  text-decoration: underline;
+  text-underline-offset: 10px;
+  text-decoration-thickness: 3px;
+  text-decoration-color: #ffa535;
+}
+
+.header-forma-imagem {
+  position: absolute;
+  top:  -3%;
+  left: 0%;
+  width: 100%; 
+  z-index: -10;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0.8;
+}
+
+.header-forma-imagem img {
+  width: 100%;
+  opacity: 0;
+  filter: sepia(0.9) hue-rotate(180deg) saturate(1.5);
+  animation: fadeInAndGrow 4s ease-in-out forwards; 
+}
+
+
+/* ================ANIMACAO========= */
+
+@keyframes fadeInAndGrow {
+  0% {
+    opacity: 0; /* Invisível no início */
+    transform: scale(0.7); /* Escala inicial (60%) */
+  }
+  100% {
+    opacity: 1; /* Totalmente visível no final */
+    transform: scale(0.78); /* Escala final (70%) */
+  }
+}

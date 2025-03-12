@@ -1,0 +1,138 @@
+/* Estilos gerais */
+.footer {
+  background: #2850a0;
+  height: 9vh; /* Altura padrão */
+  color: white;
+  border-top: 3px solid #ccd2dc72;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  padding: 0 2rem; 
+}
+
+.footer img{
+  height: 90px;
+  width: auto;
+  margin: 0;
+  flex-shrink: 0;
+
+}
+
+.footer-copyright p {
+  font-size: 0.8rem;
+  text-align: center;
+}
+
+.footer-imagens img {
+  width: 55px;
+  height: 55px;
+  padding: 1rem;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+.footer-imagens img:hover {
+  transform: scale(1.1); 
+}
+
+.footer-whats {
+  right: 1%;
+  bottom: 17%;
+  position: fixed;
+  animation: shake-cycle 6s infinite;
+  z-index: 99999;
+}
+
+.footer-whats img {
+  cursor: pointer;
+  width: 40px;
+  height: 40px;
+  transition: transform 0.5s ease;
+}
+
+.footer-whats img:hover {
+  transform: scale(1.05);
+}
+
+@keyframes shake-cycle {
+  0%,
+  90% {
+    transform: translateX(0) rotate(0); 
+  }
+  92% {
+    transform: translateX(-5px) rotate(-5deg); 
+  }
+  94% {
+    transform: translateX(5px) rotate(5deg);
+  }
+  96% {
+    transform: translateX(-5px) rotate(-5deg);
+  }
+  98% {
+    transform: translateX(5px) rotate(5deg);
+  }
+  100% {
+    transform: translateX(0) rotate(0); 
+  }
+}
+
+/* ====== MEDIA QUERIES PARA RESPONSIVIDADE ======= */
+
+@media (max-width: 768px) {
+  .footer {
+    height: auto; 
+    flex-direction: column; 
+    justify-content: center;
+    align-items: center;
+    padding: 1rem 0; 
+  }
+
+  .footer-copyright p {
+    font-size: 0.7rem; 
+    margin-bottom: 0.5rem; 
+  }
+
+  .footer-imagens img {
+    width: 45px; 
+    height: 45px;
+    padding: 0.5rem; 
+  }
+
+  .footer-whats {
+    bottom: 10%; 
+    right: 2%; 
+  }
+
+  .footer-whats img {
+    width: 35px; 
+    height: 35px;
+  }
+}
+
+@media (max-width: 480px) {
+  .footer {
+    padding: 0.8rem 0; 
+  }
+
+  .footer-copyright p {
+    font-size: 0.6rem; 
+    margin-bottom: 0.3rem; 
+  }
+
+  .footer-imagens img {
+    width: 40px; 
+    height: 40px;
+    padding: 0.3rem; 
+  }
+
+  .footer-whats {
+    bottom: 8%; 
+    right: 3%; 
+  }
+
+  .footer-whats img {
+    width: 30px; 
+    height: 30px;
+  }
+}

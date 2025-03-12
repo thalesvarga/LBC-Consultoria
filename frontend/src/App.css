@@ -1,0 +1,44 @@
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+html {
+  scroll-behavior: smooth;
+}
+
+body{
+
+    font-family: 'Open Sans', sans-serif;
+    overflow-x:hidden;
+    position: relative;
+    height: 100vh;
+    scroll-behavior: smooth;
+  
+}   
+/* 
+body::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 0%;
+    width: 90%;
+    height: 200%;
+    background: url('./src/assets/imagens/line 1.svg') no-repeat center;
+    background-size: 20% 100%; 
+    pointer-events: none;
+    z-index: -10;
+    opacity: 0;
+    animation: fadeInBody 5s ease-in forwards;
+    transform: rotateY(-10deg);
+}
+
+  @keyframes fadeInBody {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 0.5;
+    }
+  }
+ */

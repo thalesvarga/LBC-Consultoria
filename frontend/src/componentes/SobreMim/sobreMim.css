@@ -1,0 +1,153 @@
+.sobre-mim {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 70vh;
+  align-items: center;
+  position: relative;
+}
+
+.sobre-mim-conteudo {
+  justify-content: center;
+  position: relative;
+  width: 60%;
+  height: 65%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.sobre-mim-conteudo h2 {
+  background: #2850a0;
+  font-weight: bold;
+  font-size: 2rem;
+  line-height: 3rem;
+  width: 58%;
+  color: white;
+  box-shadow: 0 2px 4px rgb(154, 154, 154, 0.5),
+    inset 0 1px 2px rgba(255, 255, 255, 0.5);
+  position: absolute;
+  padding: 2rem;
+  left: 0%;
+  top: 22%;
+  z-index: 1; 
+  opacity: 0;
+  animation: fadeIn 1.3s ease-in forwards; 
+}
+
+.sobre-mim-conteudo p {
+  position: absolute;
+  text-align: left;
+  color: black;
+  font-weight: 200;
+  font-size: 1rem;
+  line-height: 3rem;
+  position: absolute;
+  top: 27%;
+  left: 19.5%;
+  width: 38%;
+
+  background: white;
+  padding: 6rem 2rem 2rem 2rem;
+  box-shadow: 0 2px 4px rgb(154, 154, 154, 1),
+    inset 0 1px 2px rgba(255, 255, 255, 1);
+  z-index: -2;
+}
+
+.sobre-mim-conteudo h6 {
+  margin: 2rem 0;
+  font-weight: 500;
+  line-height: 2rem;
+  width: 40%;
+  background:white;
+  padding: 1.5rem;
+  box-shadow: 0 2px 4px rgb(154, 154, 154, 1),
+    inset 0 1px 2px rgba(255, 255, 255, 1);
+  position: absolute;
+  top: 18%;
+  left: 52%;
+  z-index: -1;
+  font-size: 1.2rem;
+  transition: opacity 2s ease;
+  color: black;
+}
+
+.sobre-mim img {
+  width: 49%;
+  top: 17%;
+  left: 11.8%;
+  position: absolute;
+  z-index: -4;
+  object-fit: cover;
+}
+
+.botao-cta {
+  background: #2850a0;
+  border: none;
+  color: white;
+  border-radius: 24px;
+  font-size: 0.9rem;
+  font-weight: bold;
+  justify-content: flex-end;
+  cursor: pointer;
+  transition: opacity 0.5s ease;
+  opacity: 1;
+  text-decoration: none;
+  position: absolute;
+  top: 100%;
+  left: 30%;
+  padding: 1rem 2rem;
+}
+
+.botao-cta:hover {
+  opacity: 0.8;
+  background: #1c3a7d;
+}
+
+/* ===========ANIMAÇOES================ */
+
+.fade-in {
+  opacity: 0;
+  animation: fadeIn 1.3s ease-in forwards;
+}
+
+@keyframes fadeIn {
+  to {
+    opacity: 1;
+  }
+}
+
+.slide-in-left {
+  opacity: 0;
+  transform: translateX(50px);
+  animation: slideInLeft 1s ease-out forwards;
+}
+
+@keyframes slideInLeft {
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideInLeft {
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.fade-in-up {
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeInUp 1.5s ease-out forwards;
+}
+
+@keyframes fadeInUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

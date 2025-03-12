@@ -1,0 +1,164 @@
+.captacaoServico {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100%;
+  align-items: stretch; /* Garante que os filhos ocupem toda a altura */
+  overflow: hidden;
+}
+
+.captacao-etapa1 {
+  width: 100%;
+  height: 100vh;
+  align-items: stretch;
+}
+
+.captacao-etapa2 {
+  width: 100%;
+  height: 100vh;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: stretch;
+}
+
+.layout-container {
+  display: flex;
+  width: 100%;
+  height: 100%;
+}
+
+.lado-esquerdo {
+  width: 100%;
+  position: relative;
+}
+
+.imagem-lateral {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0.8;
+}
+
+.lado-direito {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  width: 30%;
+  padding: 30px;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.formulario-container {
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+}
+.formulario-container h2 {
+  margin: 1rem 0;
+}
+
+.formulario-container p {
+  font-size: 0.5rem;
+  opacity: 0.5;
+  line-height: 1.6;
+}
+.botoes {
+  display: flex;
+  align-items: center;
+  gap: 16px; /* Espaçamento entre os botões */
+  font-family: inherit;
+}
+
+.botao-continuar {
+  align-self: flex-end;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  background-color: #ccc;
+  color: #fff;
+}
+
+.botao-continuar.ativo {
+  background-color: #3498db;
+}
+
+.botao-continuar:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.botao-voltar {
+  position: relative; /* Permite o uso de pseudo-elementos */
+  width: 40px; /* Tamanho do botão */
+  height: 40px; /* Tamanho do botão */
+  border-radius: 50%; /* Formato redondo */
+  background-color: #ffffff; /* Fundo branco */
+  border: 1px solid #ccc; /* Borda leve */
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.3s ease; /* Efeito suave */
+}
+
+.botao-voltar:hover {
+  background-color: #ffa535; /* Fundo mais escuro ao passar o mouse */
+  transform: scale(1.1); /* Aumenta ligeiramente o tamanho ao passar o mouse */
+}
+
+.botao-voltar::before {
+  content: "←"; /* Seta para a esquerda */
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%); /* Centraliza a seta */
+  font-size: 18px; /* Tamanho da seta */
+  color: #33333392; /* Cor da seta */
+}
+.botao-voltar:hover::before {
+  color: white;
+}
+
+/* ========== FORMULARIO========== */
+
+.formulario-container {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  width: 100%;
+}
+
+.campo-formulario {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.campo-formulario input {
+  padding: 15px;
+  margin: 0.2rem;
+  border: 2px solid #00000015;
+  border-radius: 8px;
+  font-size: 13px;
+  outline: none;
+  transition: border-color 0.3s ease;
+}
+
+.campo-formulario input:focus {
+  border-color: #3498db; /* Destaca o campo ao focar */
+  box-shadow: 0 0 5px rgba(52, 152, 219, 0.5); /* Sombra sutil ao focar */
+}
+
+.mensagem-erro {
+  font-size: 0.8rem;
+  color: red;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+  .campo-formulario input {
+    font-size: 14px; /* Reduz o tamanho da fonte em telas pequenas */
+    padding: 8px;
+  }
+}

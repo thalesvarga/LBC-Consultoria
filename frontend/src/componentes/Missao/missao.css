@@ -1,0 +1,244 @@
+
+.missao {
+  background: #82a5ec49;
+  width: 100%;
+  height: 80vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 3rem;
+  position: relative;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 5rem 0 5rem 0;
+  box-shadow: 0 -4px 6px -4px rgba(0, 0, 0, 0.3),
+    0 4px 6px -4px rgba(0, 0, 0, 0.3);
+}
+
+.missao-titulo {
+  display: flex;
+  align-items: center;
+  justify-content: center; 
+}
+
+.missao-titulo h2 {
+  z-index: 1;
+  padding: 2rem 0rem;
+  width: 40%;
+  color: #2850a0;
+  text-align: center;
+  font-weight: bold;
+  font-size: 2rem;
+  background: white;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3),
+    inset 0 1px 2px rgba(255, 255, 255, 0.5);
+  opacity: 0;
+  transform: translateY(-50px);
+  animation: moveTitulo 5s ease-out forwards;
+}
+
+.missao-titulo p{
+  z-index: 2;
+  background: white;
+  width: 40%;
+  padding: 2.5rem;
+  font-weight: 200;
+  line-height: 2rem;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3),
+    inset 0 1px 2px rgba(255, 255, 255, 0.5);
+  margin-right: 10%;
+  margin-top: 5rem;
+  position: relative;
+  opacity: 0;
+  transform: translateY(50px);
+  animation: moveParagrafo 4s ease-out 2s forwards;
+}
+
+.missao-numeros {
+  gap: 2rem;
+  color: #2850a0;
+  display: flex;
+  font-weight: bold;
+  position: absolute;
+  left: 24%;
+  top: 45%;
+  text-align: center;
+  align-items: center;
+  background: rgba(255, 255, 255, 0.525);
+  height: 240px;
+  width: 400px;
+  padding-left: 2rem;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1),
+    inset 0 1px 2px rgba(255, 255, 255, 0.5);
+  opacity: 0;
+  transform: translateX(-50px);
+  animation: moveNumeros 3s ease-out 2s forwards;
+}
+
+.missao-vidas-protegidas,
+.missao-empresas-ativas {
+  text-align: center;
+}
+
+.missao-vidas-protegidas h3,
+.missao-empresas-ativas h3 {
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
+}
+
+.missao-vidas-protegidas h4,
+.missao-empresas-ativas h4 {
+  font-size: 1.2rem;
+  font-weight: 500;
+  opacity: 0;
+  animation: fadeIn 3s ease-out 1s forwards;
+}
+
+.missao a {
+  background-color: #ffa535;
+  position: absolute;
+  margin-top: 2rem;
+  color: white;
+  padding: 1rem 2rem;
+  text-decoration: none;
+  font-size: 0.9rem;
+  font-weight: bold;
+  border-radius: 24px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  transition: opacity 0.5s ease;
+  top: 80%;
+  left: 54%;
+  cursor: pointer;
+  opacity: 0;
+  transform: translateX(50px);
+  animation: moveBotao 5s ease-out 2s forwards;
+}
+
+.missao a:hover {
+  opacity: 0.8;
+  background-color: rgba(255, 181, 106, 0.976);
+}
+
+.missao img {
+  position: absolute;
+  width: 60%;
+  z-index: -2;
+}
+
+/* ====== ANIMAÇÕES ======= */
+
+@keyframes moveBotao {
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes moveNumeros {
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes moveParagrafo {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes moveTitulo {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeIn {
+  to {
+    opacity: 1;
+  }
+}
+
+/* ====== MEDIA QUERIES PARA RESPONSIVIDADE ======= */
+
+@media (max-width: 768px) {
+  .missao {
+    height: auto; /* Altura automática para caber todo o conteúdo */
+    padding: 3rem 1rem; /* Reduz o padding */
+  }
+
+  .missao-titulo {
+    flex-direction: column; /* Organiza em coluna */
+    align-items: center;
+  }
+
+  .missao-titulo h2 {
+    width: 80%; /* Ocupa mais largura */
+    margin-bottom: 1rem; /* Espaçamento entre o título e o parágrafo */
+  }
+
+  .missao-titulo p {
+    width: 80%; /* Ocupa mais largura */
+    margin-right: 0; /* Remove margem lateral */
+    margin-top: 0; /* Remove margem superior */
+  }
+
+  .missao-numeros {
+    position: static; /* Remove posição absoluta */
+    width: 80%; /* Largura reduzida */
+    height: auto; /* Altura automática */
+    margin-top: 2rem; /* Espaçamento acima dos números */
+    padding: 1rem; /* Padding interno reduzido */
+  }
+
+  .missao a {
+    position: static; /* Remove posição absoluta */
+    margin-top: 2rem; /* Espaçamento acima do botão */
+    left: auto; /* Remove posicionamento fixo */
+    top: auto;
+    transform: translateY(50px); /* Ajusta a animação */
+    animation: moveBotao 1s ease-out 1s forwards;
+  }
+
+  .missao img {
+    position: static; /* Remove posição absoluta */
+    width: 100%; /* Imagem ocupa toda a largura */
+    margin-top: 2rem; /* Espaçamento acima da imagem */
+  }
+}
+
+@media (max-width: 480px) {
+  .missao {
+    padding: 2rem 1rem; /* Padding ainda menor */
+  }
+
+  .missao-titulo h2 {
+    font-size: 1.5rem; /* Tamanho reduzido */
+  }
+
+  .missao-titulo p {
+    font-size: 1rem; /* Tamanho reduzido */
+  }
+
+  .missao-numeros {
+    width: 100%; /* Ocupa toda a largura */
+    padding: 1rem; /* Padding interno reduzido */
+  }
+
+  .missao-vidas-protegidas h3,
+  .missao-empresas-ativas h3 {
+    font-size: 1.5rem; /* Tamanho reduzido */
+  }
+
+  .missao-vidas-protegidas h4,
+  .missao-empresas-ativas h4 {
+    font-size: 1rem; /* Tamanho reduzido */
+  }
+
+  .missao a {
+    font-size: 0.8rem; /* Tamanho reduzido */
+    padding: 0.8rem 1.5rem; /* Padding interno reduzido */
+  }
+}

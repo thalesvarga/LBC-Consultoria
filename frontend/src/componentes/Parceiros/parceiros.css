@@ -1,0 +1,188 @@
+.parceiros {
+  width: 100%;
+  overflow: hidden;
+  padding: 2rem 0;
+  background: #f9f9f9;
+  height: 50vh;
+  z-index: 4;
+}
+
+.parceiros h3 {
+  text-align: center;
+  font-size: 2rem;
+  color: #2850a0;
+  margin: 2rem 0;
+  font-weight: bold;
+}
+
+.parceiros-container {
+  position: relative;
+  margin-top: 5rem;
+  align-items: center;
+}
+
+.parceiros-linha-esquerda ul {
+  display: flex;
+  gap: 1rem;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  animation: moveLeft 60s linear infinite;
+}
+
+.parceiros-linha-direita ul {
+  display: flex;
+  gap: 1rem;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  animation: moveRight 60s linear infinite;
+}
+
+@keyframes moveLeft {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+@keyframes moveRight {
+  0% {
+    transform: translateX(-50%);
+  }
+  100% {
+    transform: translateX(0%);
+  }
+}
+
+.parceiros li {
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  padding: 1rem;
+  width: 170px;
+  height: 90px;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0.5rem;
+}
+
+.parceiros img {
+  max-width: 80%;
+  max-height: 70%;
+  border-radius: 8px;
+  filter: sepia(0.9) hue-rotate(190deg) saturate(1);
+}
+
+.parceiros-linha-esquerda::before,
+.parceiros-linha-esquerda::after,
+.parceiros-linha-direita::before,
+.parceiros-linha-direita::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 400px;
+  z-index: 2;
+  pointer-events: none;
+}
+
+.parceiros-linha-esquerda::before,
+.parceiros-linha-direita::before {
+  left: 0;
+  background: linear-gradient(
+    to right,
+    rgba(255, 255, 255, 1),
+    rgba(255, 255, 255, 0)
+  );
+}
+
+.parceiros-linha-esquerda::after,
+.parceiros-linha-direita::after {
+  right: 0;
+  background: linear-gradient(
+    to left,
+    rgba(255, 255, 255, 1),
+    rgba(255, 255, 255, 0)
+  );
+}
+
+/* ====== MEDIA QUERIES PARA RESPONSIVIDADE ======= */
+
+@media (max-width: 1200px) {
+  .parceiros li {
+    width: 150px; /* Reduz o tamanho dos cards */
+    height: 80px;
+  }
+
+  .parceiros img {
+    max-width: 70%; /* Ajusta o tamanho das imagens */
+    max-height: 60%;
+  }
+
+  .parceiros-linha-esquerda::before,
+  .parceiros-linha-esquerda::after,
+  .parceiros-linha-direita::before,
+  .parceiros-linha-direita::after {
+    width: 300px; /* Reduz a largura do gradiente */
+  }
+}
+
+@media (max-width: 768px) {
+  .parceiros {
+    height: auto; /* Altura automática para caber todo o conteúdo */
+    padding: 1.5rem 0;
+  }
+
+  .parceiros h3 {
+    font-size: 1.5rem; /* Tamanho reduzido para telas médias */
+  }
+
+  .parceiros li {
+    width: 130px; /* Tamanho menor para os cards */
+    height: 70px;
+  }
+
+  .parceiros img {
+    max-width: 60%; /* Ajusta o tamanho das imagens */
+    max-height: 50%;
+  }
+
+  .parceiros-linha-esquerda::before,
+  .parceiros-linha-esquerda::after,
+  .parceiros-linha-direita::before,
+  .parceiros-linha-direita::after {
+    width: 200px; /* Gradiente ainda menor */
+  }
+}
+
+@media (max-width: 480px) {
+  .parceiros {
+    padding: 1rem 0;
+  }
+
+  .parceiros h3 {
+    font-size: 1.2rem; /* Tamanho ainda menor para telas pequenas */
+  }
+
+  .parceiros li {
+    width: 100px; /* Tamanho mínimo para os cards */
+    height: 60px;
+  }
+
+  .parceiros img {
+    max-width: 50%; /* Ajusta o tamanho das imagens */
+    max-height: 40%;
+  }
+
+  .parceiros-linha-esquerda::before,
+  .parceiros-linha-esquerda::after,
+  .parceiros-linha-direita::before,
+  .parceiros-linha-direita::after {
+    width: 150px; /* Gradiente mínimo */
+  }
+}

@@ -1,0 +1,17 @@
+.header-secundario {
+    position:absolute;
+    height: auto; 
+    padding: 1rem; 
+    width: 8%;
+    z-index: 99999;
+    margin: 0 3rem;
+
+  }
+  
+ .header-menu-secundario {
+    justify-content: flex-start; 
+  }
+
+  .header-menu-secundario img{
+    width: 90%;
+  }
