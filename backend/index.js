@@ -4,6 +4,8 @@ const express = require("express");
 const { google } = require("googleapis");
 const cors = require("cors");
 const path = require("path");
+require('dotenv').config();
+
 
 const app = express();
 app.use(cors({
@@ -14,7 +16,7 @@ app.use(express.json());
 
 // Autenticação com Google Sheets (CAMINHO ABSOLUTO)
 const auth = new google.auth.GoogleAuth({
-  keyFile: "/Users/thalesvarga/Desktop/dev/LBC Consultoria/lbc-consultoria-46df56e1ecb1.json",
+  keyFile:  process.env.GOOGLE_APPLICATION_CREDENTIALS,
   scopes: ["https://www.googleapis.com/auth/spreadsheets"],
 });
 
@@ -70,7 +72,8 @@ app.post("/enviar-dados", async (req, res) => {
   }
 
   try {
-    const spreadsheetId = "1viVkid58ZHbDLmIhyhy2tj57IS9QD6bzbBIde63PUiE"; 
+    const spreadsheetId = process.env.SPREADSHEET_ID;
+
     const colunasServico = mapeamentoServicos[servico];
 
    

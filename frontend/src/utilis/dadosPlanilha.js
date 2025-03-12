@@ -3,13 +3,13 @@ import { google } from "googleapis";
 export const enviarParaGoogleSheets = async (formData) => {
   try {
     const auth = new google.auth.GoogleAuth({
-      keyFile: "/Users/thalesvarga/Desktop/dev/LBC Consultoria/lbc-consultoria-46df56e1ecb1.json", // Caminho do arquivo JSON
+      keyFile: process.env.GOOGLE_APPLICATION_CREDENTIALS,// Caminho do arquivo JSON
       scopes: "https://www.googleapis.com/auth/spreadsheets",
     });
 
     const sheets = google.sheets({ version: "v4", auth });
 
-    const spreadsheetId = "1viVkid58ZHbDLmIhyhy2tj57IS9QD6bzbBIde63PUiE"; // ID da planilha
+    const spreadsheetId = process.env.SPREADSHEET_ID;// ID da planilha
 
     // Verifica a próxima linha vazia
     const response = await sheets.spreadsheets.values.get({
