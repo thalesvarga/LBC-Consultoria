@@ -2,16 +2,16 @@ import "./parceiros.css";
 import React from 'react';
 
 const parceirosData = [
-  { image: "./assets/imagens/amil.png"},
-  { image: "./assets/imagens/ampla-saude-seeklogo.png"},
-  { image: "./assets/imagens/hapvida.webp"},
-  { image: "./assets/imagens/notremade.png" },
-  { image: "./assets/imagens/prevent-senior.png" },
-  { image: "./assets/imagens/sulamerica-saude-logo.png"},
-  { image: "./assets/imagens/bradesco.png"},
-  { image: "./assets/imagens/omint-logo.png"},
-  { image: "./assets/imagens/porto-seguro.png"},
-  { image: "./assets/imagens/unimed.png"},
+  { image: "/src/assets/imagens/amil.png"},
+  { image: "/src/assets/imagens/ampla-saude-seeklogo.png"},
+  { image: "/src/assets/imagens/hapvida.webp"},
+  { image: "/src/assets/imagens/notremade.png" },
+  { image: "/src/assets/imagens/prevent-senior.png" },
+  { image: "/src/assets/imagens/sulamerica-saude-logo.png"},
+  { image: "/src/assets/imagens/bradesco.png"},
+  { image: "/src/assets/imagens/omint-logo.png"},
+  { image: "/src/assets/imagens/porto-seguro.png"},
+  { image: "/src/assets/imagens/unimed.png"},
 ]
 
 const Parceiros = () => {

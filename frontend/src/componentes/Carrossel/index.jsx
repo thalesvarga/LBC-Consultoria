@@ -1,5 +1,9 @@
 import React, { useState, useEffect, useRef } from "react";
 import "./carrossel.css";
+import imagemLogo from "/src/assets/imagens/banner-teste.png"
+import videoCarrossel from "/src/assets/imagens/banner-video.mp4"
+import imagemSeguroDeVida from "/src/assets/imagens/seguro-de-vida1.jpg"
+
 
 const Carrossel = () => {
   const [slideAtual, setSlideAtual] = useState(1); 
@@ -9,7 +13,7 @@ const Carrossel = () => {
   const slidesOriginais = [
     {
       tipo: "imagem",
-      conteudo: "src/assets/imagens/banner-teste.png",
+      conteudo:{imagemLogo} ,
       titulo: "Especialista em Gestão de Planos de Saúde",
       descricao: "Cuidamos de tudo para você.",
       botaoTexto: "Faça uma cotação",
@@ -18,7 +22,7 @@ const Carrossel = () => {
     },
     {
       tipo: "video",
-      conteudo: "src/assets/imagens/banner-video.mp4",
+      conteudo: {videoCarrossel},
       titulo: "Planos Empresariais *",
       descricao: "Com preços atrativos e que cabem no bolso.",
       botaoTexto: "Contrate",
@@ -27,7 +31,7 @@ const Carrossel = () => {
     },
     {
       tipo: "imagem",
-      conteudo: "/src/assets/imagens/seguro-de-vida1.jpg",
+      conteudo:{imagemSeguroDeVida} ,
       titulo: "Seguro de Vida",
       descricao:"Garanta tranquilidade para você e seu futuro.",
       botaoTexto: "Contrate agora",

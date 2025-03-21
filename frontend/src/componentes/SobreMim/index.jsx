@@ -3,7 +3,7 @@ import "./sobreMim.css";
 import { Link } from "react-router-dom"; 
 import logo from "/src/assets/imagens/Logo-Trianguo.svg"
 import setaParaBaixo from "/src/assets/imagens/arrow-down.png"
-import fundoBanner from '/src/assets/imagens/FUNDO-banner.png';
+// import fundoBanner from '/src/assets/imagens/FUNDO-banner.png';
 
 const SobreMim = ({ subtitulo, texto, mostrarBotao = true }) => {
   const [carregado, setCarregado] = useState(false);
@@ -62,7 +62,6 @@ const SobreMim = ({ subtitulo, texto, mostrarBotao = true }) => {
         {mostrarBotao && mostrarBotaoAnimado && (
           <Link to="/captacao" className="botao-cta fade-in-up">Fale com um dos nossos consultores</Link>
         )}
-        <img src={fundoBanner} alt="Background branco" />
       </div>
       
         <img className="sobre-mim-seta" src={setaParaBaixo} alt="seta para baixo"/>
