@@ -103,7 +103,41 @@
     transform: scale(0.7); 
   }
   100% {
-    opacity: 1; /* Totalmente visível no final */
-    transform: scale(0.78); /* Escala final (70%) */
+    opacity: 1; 
+    transform: scale(0.78); 
   }
 }
+
+
+  @media (max-width: 768px) {
+   
+    .header-menu {
+      padding: 0.3rem 0; 
+    }
+  
+    .header-menu img {
+      height: 50px; 
+    }
+  
+    .header-menu-links a {
+      font-size: 0.6rem; 
+      padding-left: 0.5rem; 
+    }
+  
+    .header-orcamento {
+      padding: 0.3rem 0.6rem; 
+      font-size: 0.6rem; 
+    }
+  
+    .header-email div {
+      padding-right: 5rem; 
+    }
+    .header-email a {
+      font-size: 0.5rem; 
+      gap: 4px; 
+    }
+    .header-email a img {
+      width: 10px; 
+      height: 10px;
+    }
+  }

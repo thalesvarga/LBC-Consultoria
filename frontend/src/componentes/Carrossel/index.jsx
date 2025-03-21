@@ -33,7 +33,7 @@ const Carrossel = () => {
       conteudo: imagemSeguroDeVida,
       titulo: "Seguro de Vida",
       descricao: "Garanta tranquilidade para você e seu futuro.",
-      botaoTexto: "Contrate agora",
+      botaoTexto: "Contrate",
       botaoLink: "#slide1",
       classe: "slide-estilo-3",
     },

@@ -4,7 +4,6 @@ import "./header.css";
 import logo from "/src/assets/imagens/lbc-logo-branco.webp";
 import iconeEmail from "/src/assets/imagens/email.png";
 import iconeTelefone from "/src/assets/imagens/telefone.svg";
-import imagemHeader from "/src/assets/imagens/Lbc-banner.png";
 import { Link } from "react-router-dom";
 
 const HeaderPrincipal = () => {

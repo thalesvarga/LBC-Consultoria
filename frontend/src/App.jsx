@@ -40,7 +40,7 @@ function App() {
           
               <Produtos />
               <Missao />  
-              <PopUp />
+              {/* <PopUp /> */}
               <Parceiros />
               <Contato />
               <Footer />
