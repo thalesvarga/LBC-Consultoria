@@ -6,6 +6,8 @@
   min-height: 60vh;
   /* box-shadow: 0 2px 4px rgba(83, 83, 83, 1),
     inset 0 1px 2px rgba(185, 185, 185, 1); */
+    align-items: center;
+    overflow: hidden;
 }
 
 .produtos-titulo h2 {
@@ -22,25 +24,27 @@
   text-decoration: underline;
   text-decoration-thickness: 3px;
   text-underline-offset: 10px;
+  text-align: center;
 }
 
 .produtos-titulo h2.visible {
   opacity: 1;
   transform: translateX(0);
+
 }
 
 .produtos-container {
-  display: flex;
-  justify-content: flex-start;
-  align-items: flex-start;
-
+  display: flex; /* Mantém os cards em linha */
+  justify-content: center; /* Centraliza os cards horizontalmente */
+  align-items: center; 
+  margin: 0 auto;
   gap: 40px;
   padding: 5rem 0 2rem 2rem;
   width: 60%;
+  max-width: 1200px;
   transform: translateX(30%);
   opacity: 0;
   transition: opacity 1s ease-in-out;
-  margin: 3rem;
 }
 
 .produtos-container.visible {
@@ -63,8 +67,10 @@
 
 .produtos-card {
   display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
+  justify-content: center; 
+  align-items: center; 
+  transform-origin: center;
+  text-align: center;
   background-color: rgba(255, 255, 255, 0.1);
   border-radius: 10px;
   padding: 1rem 2rem;
@@ -74,9 +80,8 @@
   z-index: 1;
   min-height: 220px;
   opacity: 0.8;
-  transform-origin: flex-start;
   padding: 3rem;
- 
+
 }
 
 .produtos-card:hover {
