@@ -1,0 +1,192 @@
+/* Estilo do carrossel */
+.carrossel {
+  position: relative;
+  width: 100%;
+  max-width: 1840px;
+  margin: 0 auto;
+  overflow: hidden;
+  background: #374a6f;
+  min-height: 50vh;
+  /* background: rgb(238, 238, 238); */
+}
+
+/* ==============Slides=============== */
+.slides {
+  display: flex;
+  transition: transform 10s ease-in-out;
+}
+
+.slide {
+  min-width: 100%;
+  height: 420px;
+  display: flex;
+  align-items: center;
+  margin-top:8rem;
+}
+
+.slide-estilo-1 {
+  position: relative;
+ 
+}
+.slide-estilo-1 h2,
+.slide-estilo-1 p{
+  text-align: center;
+  width: 40%;;
+  margin-left: 6rem;
+
+}
+
+.slide-estilo-3 .imagem-slide{
+  background-position: top center; 
+  background-size: cover; 
+  transform: scaleX(-1);
+}
+
+.slide-estilo-3{
+  background: rgb(238, 238, 238);
+  color: #0e2c72;
+}
+.slide-estilo-3 p,
+.slide-estilo-3 h2{
+  width: 55%;
+  color: #0e2c72;
+}
+
+/* Imagem do Slide */
+.imagem-slide {
+  width: 60%;
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.video-slide {
+  width: 60%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.video-slide video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  background-position: center;
+}
+
+/* Conteúdo do Slide */
+.conteudo-slide {
+  width: 50%;
+  padding: 20px;
+  margin-left: 8rem;
+  color: white;
+  text-align: left;
+  z-index: 10;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.titulo {
+  font-size: 1.5rem;
+  margin-bottom: 10px;
+}
+
+.descricao {
+  font-size: 1rem;
+  margin-bottom: 20px;
+  font-weight: 300;
+}
+
+.botao{
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.6em 1.2em;
+  background-color: #e64919;
+  color: white;
+  text-decoration: none;
+  border-radius: 5px;
+  font-weight: bold;
+  font-size: 1rem;
+  text-align: center;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+  white-space: nowrap;
+  max-width: 20%;
+  width: auto;
+}
+
+.botao:hover {
+  background-color: #dfe3ec;
+
+  color: #0e2c72;
+}
+
+.botao-centralizado {
+  position: absolute; /* Posicionamento absoluto */
+  top: 55%;
+  left: 67%;
+  transform: translate(-50%, -50%);
+  padding: 0.8em 1.3em;
+  font-size: 1rem;
+  z-index: 10;
+}
+
+.botao-texto1{
+
+}
+
+/* Botões de navegação */
+.botao-navegacao {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: rgba(0, 0, 0, 0.5);
+  color: white;
+  border: none;
+  font-size: 24px;
+  cursor: pointer;
+  padding: 5px 13px;
+  z-index: 10;
+  border-radius: 50%;
+  background-color: rgba(69, 69, 69, 0.595);
+  transition: all 0.3s ease;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.botao-navegacao:hover {
+  color: #ffffff;
+  box-shadow: 0 0 10px rgba(0, 123, 255, 0.6);
+  transform: scale(1.1) translateY(-50%);
+  background-color: rgb(255, 136, 1);
+}
+
+.botao-navegacao.anterior {
+  left: 10px;
+}
+
+.botao-navegacao.proximo {
+  right: 10px;
+}
+
+/* Indicadores */
+.indicadores {
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 10px;
+}
+
+.indicador {
+  width: 10px;
+  height: 10px;
+  background-color: rgba(255, 255, 255, 0.5);
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.indicador.ativo {
+  background-color: white;
+}

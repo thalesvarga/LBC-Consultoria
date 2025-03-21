@@ -4,7 +4,8 @@ import "./header.css";
 import logo from "/src/assets/imagens/lbc-logo-branco.webp";
 import iconeEmail from "/src/assets/imagens/email.png";
 import iconeTelefone from "/src/assets/imagens/telefone.svg";
-import imagemHeader from "/src/assets/imagens/Ativo 8.png";
+import imagemHeader from "/src/assets/imagens/Lbc-banner.png";
+import { Link } from "react-router-dom";
 
 const HeaderPrincipal = () => {
   return (
@@ -50,12 +51,14 @@ const HeaderPrincipal = () => {
             <li>
               <a href="#Contato">Contato</a>
             </li>
+            <li >
+              
+              </li>
           </ul>
         </div>
-      </div>
-
-      <div className="header-forma-imagem">
-        <img src={imagemHeader}  className="fade-in" alt="Forma e imagem do header" />
+        <div>
+          <Link to="/captacao" className="header-orcamento">Orçamento</Link>
+          </div>
       </div>
     </header>
   );

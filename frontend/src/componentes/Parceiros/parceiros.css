@@ -1,23 +1,27 @@
 .parceiros {
   width: 100%;
   overflow: hidden;
-  padding: 2rem 0;
   background: #f9f9f9;
   height: 50vh;
   z-index: 4;
+  align-items: center;
+  /* border-bottom-left-radius: 340px; */
+  box-shadow: 0 2px 4px rgba(83, 83, 83, 0.2),
+  inset 0 1px 2px rgba(185, 185, 185, 0.2);
 }
 
 .parceiros h3 {
-  text-align: center;
-  font-size: 2rem;
-  color: #2850a0;
-  margin: 2rem 0;
-  font-weight: bold;
+  text-align: left;
+  font-size: 1.5rem;
+  color: #192050;
+  margin-left: 5rem;
+  padding-top: 4rem;
+  font-weight: 500;
 }
 
 .parceiros-container {
   position: relative;
-  margin-top: 5rem;
+  margin-top: 6rem;
   align-items: center;
 }
 
@@ -115,12 +119,12 @@
 
 @media (max-width: 1200px) {
   .parceiros li {
-    width: 150px; /* Reduz o tamanho dos cards */
+    width: 150px;
     height: 80px;
   }
 
   .parceiros img {
-    max-width: 70%; /* Ajusta o tamanho das imagens */
+    max-width: 70%;
     max-height: 60%;
   }
 
@@ -128,27 +132,27 @@
   .parceiros-linha-esquerda::after,
   .parceiros-linha-direita::before,
   .parceiros-linha-direita::after {
-    width: 300px; /* Reduz a largura do gradiente */
+    width: 300px;
   }
 }
 
 @media (max-width: 768px) {
   .parceiros {
-    height: auto; /* Altura automática para caber todo o conteúdo */
+    height: auto;
     padding: 1.5rem 0;
   }
 
   .parceiros h3 {
-    font-size: 1.5rem; /* Tamanho reduzido para telas médias */
+    font-size: 1.5rem;
   }
 
   .parceiros li {
-    width: 130px; /* Tamanho menor para os cards */
+    width: 130px;
     height: 70px;
   }
 
   .parceiros img {
-    max-width: 60%; /* Ajusta o tamanho das imagens */
+    max-width: 60%;
     max-height: 50%;
   }
 
@@ -156,7 +160,7 @@
   .parceiros-linha-esquerda::after,
   .parceiros-linha-direita::before,
   .parceiros-linha-direita::after {
-    width: 200px; /* Gradiente ainda menor */
+    width: 200px;
   }
 }
 
@@ -166,7 +170,7 @@
   }
 
   .parceiros h3 {
-    font-size: 1.2rem; /* Tamanho ainda menor para telas pequenas */
+    font-size: 1.2rem;
   }
 
   .parceiros li {

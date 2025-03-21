@@ -40,34 +40,60 @@ const Missao = () => {
 
   useEffect(() => {
     if (isVisible) {
-      // Adiciona classes de animação aos elementos quando a seção é visível
+
       setTimeout(() => {
         tituloRef.current.classList.add("visible");
       }, 0);
 
+      // Animação dos números
+      setTimeout(() => {
+        numerosRef.current.classList.add("visible");
+        // Contagem dos números
+        const counters = numerosRef.current.querySelectorAll("h3");
+        counters.forEach((counter) => {
+          const target = +counter.textContent.replace("+", ""); // Remove o "+" e converte para número
+          const duration = 2; // Duração da contagem em segundos
+          const increment = target / (duration * 60); // 60 FPS
+
+          let current = 0;
+          const updateCounter = () => {
+            if (current < target) {
+              current += increment;
+              counter.textContent = `+${Math.floor(current)}`;
+              requestAnimationFrame(updateCounter);
+            } else {
+              counter.textContent = `+${target}`;
+            }
+          };
+
+          updateCounter();
+        });
+      }, 2000);
+
+      // Animação do parágrafo
       setTimeout(() => {
         paragrafoRef.current.classList.add("visible");
-      }, 2000);
+      }, 1000);
 
       setTimeout(() => {
         numerosRef.current.classList.add("visible");
-      }, 4000);
+      }, 2500);
 
       setTimeout(() => {
         botaoRef.current.classList.add("visible");
-      }, 6000);
+      }, 4000);
     }
   }, [isVisible]);
 
   return (
-    <section className="missao" id="Sobre" ref={sectionRef}>
-      <img
+<section className="missao" id="Sobre" ref={sectionRef}>
+      {/* <img
         src="./src/assets/imagens/formas-missao.svg"
         alt="formas geometricas"
-      />
+      /> */}
       <div className="missao-titulo">
-        <div className="missao-titulo-fundo"></div>
-        <h2 ref={tituloRef}>Nossa Missão</h2>
+  <div className="missao-titulo-fundo"></div>
+  <h2 ref={tituloRef}>Nossa Missão</h2>
         <p ref={paragrafoRef}>
           <strong>Na LBC, não vendemos planos de saúde: cuidamos da sua jornada.</strong>
           <br />
@@ -93,11 +119,12 @@ const Missao = () => {
           <h3>100</h3>
           <h4>Empresas Ativas</h4>
         </div>
-      </div>
-      <Link to="/captacao" className="botao-cotacao" ref={botaoRef}>
+        <Link to="/captacao" className="botao-cotacao" ref={botaoRef}>
         Faça uma cotação
       </Link>
-    </section>
+      </div>
+
+</section>
   );
 };
 

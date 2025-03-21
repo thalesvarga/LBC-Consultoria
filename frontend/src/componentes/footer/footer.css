@@ -1,6 +1,6 @@
 /* Estilos gerais */
 .footer {
-  background: #2850a0;
+  background: rgb(0, 0, 0);
   height: 9vh; /* Altura padrão */
   color: white;
   border-top: 3px solid #ccd2dc72;
@@ -9,6 +9,7 @@
   align-items: center;
   justify-content: space-around;
   padding: 0 2rem; 
+  background: #374a6f;
 }
 
 .footer img{

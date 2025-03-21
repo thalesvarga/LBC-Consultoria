@@ -7,9 +7,10 @@
   height: auto;
   margin: 0 auto;
   padding: 8rem 10rem;
-  background-color: #cfd8ec5e;
+  /* background-color: #cfd8ec5e;
   box-shadow: 0 -4px 6px -4px rgba(0, 0, 0, 0.3),
-    0 4px 6px -4px rgba(0, 0, 0, 0.3);
+    0 4px 6px -4px rgba(0, 0, 0, 0.3); */
+    background: white;
 }
 
 .contato-conteudo {

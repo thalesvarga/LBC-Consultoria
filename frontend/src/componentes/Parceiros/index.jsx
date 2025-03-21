@@ -1,5 +1,6 @@
 import "./parceiros.css";
 import React from 'react';
+import logoTriangulo from "/src/assets/imagens/Logo-Trianguo.svg"
 
 const parceirosData = [
   { image: "./src/assets/imagens/amil.png"},
@@ -12,6 +13,7 @@ const parceirosData = [
   { image: "./src/assets/imagens/omint-logo.png"},
   { image: "./src/assets/imagens/porto-seguro.png"},
   { image: "./src/assets/imagens/unimed.png"},
+  
 
 ]
 
@@ -23,7 +25,8 @@ const Parceiros = () => {
 
   return (
     <section className="parceiros" id="Parceiros">
-            <h3>Parceiros</h3>
+      {/* <img className="parceiros-logo" src={logoTriangulo} alt="Logo da LBC consultoria" /> */}
+            <h3>Trabalhamos com os melhores parceiros do mercado</h3>
         <div className="parceiros-container">
             <div className="parceiros-linha-esquerda">
             <ul>

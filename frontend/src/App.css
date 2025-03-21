@@ -3,6 +3,7 @@
   padding: 0;
   box-sizing: border-box;
 }
+
 html {
   scroll-behavior: smooth;
 }
@@ -14,9 +15,10 @@ body{
     position: relative;
     height: 100vh;
     scroll-behavior: smooth;
+    background: #374a6f;
   
 }   
-/* 
+
 body::before {
     content: "";
     position: absolute;
@@ -24,7 +26,7 @@ body::before {
     left: 0%;
     width: 90%;
     height: 200%;
-    background: url('./src/assets/imagens/line 1.svg') no-repeat center;
+    /* background: url('./src/assets/imagens/line 1.svg') no-repeat center; */
     background-size: 20% 100%; 
     pointer-events: none;
     z-index: -10;
@@ -41,4 +43,4 @@ body::before {
       opacity: 0.5;
     }
   }
- */
+

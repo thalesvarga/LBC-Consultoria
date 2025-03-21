@@ -1,7 +1,7 @@
 .header {
   width: 100%;
-  height: 30vh;
-  position: relative;
+  position: fixed;
+  z-index: 99999;
 }
 
 .header-email {
@@ -12,8 +12,9 @@
   width: 100%;
   display: flex;
   justify-content: end;
-  padding-right: 10rem;
+
 }
+
 .header-telefone {
   filter: invert(1);
 }
@@ -51,7 +52,6 @@
   width: auto;
   margin: 0;
   flex-shrink: 0;
- 
 }
 
 .header-menu-links ul {
@@ -59,8 +59,8 @@
   gap: 20px;
   list-style: none;
   margin: 0;
-  padding: 0;
-  width: 70%;
+ padding: 0;
+  width: 100%;
   align-self: center;
 }
 
@@ -82,32 +82,25 @@
   text-decoration-color: #ffa535;
 }
 
-.header-forma-imagem {
-  position: absolute;
-  top:  -3%;
-  left: 0%;
-  width: 100%; 
-  z-index: -10;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  opacity: 0.8;
+.header-orcamento{
+  background: white;
+  color:black;
+  text-align: center;
+  text-decoration: none;
+  padding: 0.7rem 1rem;
+  border-radius: 12px;
+  font-size: 0.8rem;
+  font-weight: bold;
 }
 
-.header-forma-imagem img {
-  width: 100%;
-  opacity: 0;
-  filter: sepia(0.9) hue-rotate(180deg) saturate(1.5);
-  animation: fadeInAndGrow 4s ease-in-out forwards; 
-}
 
 
 /* ================ANIMACAO========= */
 
 @keyframes fadeInAndGrow {
   0% {
-    opacity: 0; /* Invisível no início */
-    transform: scale(0.7); /* Escala inicial (60%) */
+    opacity: 0; 
+    transform: scale(0.7); 
   }
   100% {
     opacity: 1; /* Totalmente visível no final */

@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from "react";
 import "./sobreMim.css";
 import { Link } from "react-router-dom"; 
+import logo from "/src/assets/imagens/Logo-Trianguo.svg"
 
-const SobreMim = ({ titulo, subtitulo, texto, mostrarBotao = true }) => {
+const SobreMim = ({ subtitulo, texto, mostrarBotao = true }) => {
   const [carregado, setCarregado] = useState(false);
-  const [mostrarTitulo, setMostrarTitulo] = useState(false);
   const [mostrarSubtitulo, setMostrarSubtitulo] = useState(false);
   const [mostrarTexto, setMostrarTexto] = useState(false)
   const [mostrarBotaoAnimado, setMostrarBotaoAnimado] = useState(false);
@@ -26,11 +26,7 @@ const SobreMim = ({ titulo, subtitulo, texto, mostrarBotao = true }) => {
   useEffect(() => {
     if (carregado) {
       
-      const timerTitulo = setTimeout(() => {
-        setMostrarTitulo(true);
-      }, 600); 
-
-      const timerSubtitulo = setTimeout(() => {
+        const timerSubtitulo = setTimeout(() => {
         setMostrarSubtitulo(true);
       }, 1300); 
 
@@ -44,7 +40,6 @@ const SobreMim = ({ titulo, subtitulo, texto, mostrarBotao = true }) => {
       }, 2200); 
 
       return () => {
-        clearTimeout(timerTitulo);
         clearTimeout(timerSubtitulo);
         clearTimeout(timerTexto);
         clearTimeout(timerBotao);
@@ -55,7 +50,7 @@ const SobreMim = ({ titulo, subtitulo, texto, mostrarBotao = true }) => {
   return (
     <section className="sobre-mim">
       <div className="sobre-mim-conteudo">
-        <div>{mostrarTitulo && <h2 className="fade-in">{titulo}</h2>}</div>
+        <img src={logo} alt="Logo LBC Consultoria" className="imagem"/>
         <div>
           {mostrarSubtitulo && <h6 className="slide-in-left">{subtitulo}</h6>}
         </div>
@@ -63,14 +58,10 @@ const SobreMim = ({ titulo, subtitulo, texto, mostrarBotao = true }) => {
           {mostrarTexto && <p className="slide-in-left">{texto}</p>}
         </div>
         {mostrarBotao && mostrarBotaoAnimado && (
-          <Link to="/captacao" className="botao-cta fade-in-up">Peça um orçamento</Link>
+          <Link to="/captacao" className="botao-cta fade-in-up">Fale com um dos nossos consultores</Link>
         )}
-    
       </div>
-      <img
-        src="./src/assets/imagens/Ativo 9.svg"
-        alt="formas geometricas decorativas"
-      />
+        <img className="sobre-mim-seta" src="/src/assets/imagens/arrow-down.png" alt="seta para baixo"/>
     </section>
   );
 };

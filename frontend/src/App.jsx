@@ -14,6 +14,9 @@ import Parceiros from "/src/componentes/Parceiros";
 import Contato from "/src/componentes/Contato";
 import CaptacaoServicos from "/src/componentes/CaptacaoServicos";
 import Footer from "/src/componentes/footer";
+import Carrossel from "./componentes/Carrossel";
+import PopUp from "./componentes/PopUp";
+
 
 function App() {
   const location = useLocation();
@@ -28,13 +31,16 @@ function App() {
           path="/"
           element={
             <>
+            <Carrossel />
               <SobreMim
                 titulo="Especialistas em planos de saúde."
-                subtitulo="Cuidamos de tudo para você."
-                texto="Na LBC, oferecemos soluções personalizadas para proteger sua família e sua empresa, com a expertise de mais de 15 anos de mercado."
+                subtitulo="Na LBC, oferecemos soluções personalizadas"
+                // texto="para proteger você, sua família ou sua empresa, contamos com a expertise de mais de 15 anos no mercado."
               />
+          
               <Produtos />
-              <Missao />
+              <Missao />  
+              <PopUp />
               <Parceiros />
               <Contato />
               <Footer />
