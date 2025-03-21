@@ -1,19 +1,18 @@
 import React, { useState, useEffect, useRef } from "react";
 import "./carrossel.css";
-import imagemLogo from "/src/assets/imagens/banner-teste.png"
-import videoCarrossel from "/src/assets/imagens/banner-video.mp4"
-import imagemSeguroDeVida from "/src/assets/imagens/seguro-de-vida1.jpg"
-
+import imagemLogo from "/src/assets/imagens/banner-teste.png";
+import imagemSeguroDeVida from "/src/assets/imagens/seguro-de-vida1.jpg";
+const videoCarrossel = '/assets/banner-video.mp4';
 
 const Carrossel = () => {
-  const [slideAtual, setSlideAtual] = useState(1); 
+  const [slideAtual, setSlideAtual] = useState(1);
   const [autoPlayAtivo, setAutoPlayAtivo] = useState(true);
   const slidesRef = useRef(null);
 
   const slidesOriginais = [
     {
       tipo: "imagem",
-      conteudo:{imagemLogo} ,
+      conteudo: imagemLogo,
       titulo: "Especialista em Gestão de Planos de Saúde",
       descricao: "Cuidamos de tudo para você.",
       botaoTexto: "Faça uma cotação",
@@ -22,7 +21,7 @@ const Carrossel = () => {
     },
     {
       tipo: "video",
-      conteudo: {videoCarrossel},
+      conteudo: videoCarrossel,
       titulo: "Planos Empresariais *",
       descricao: "Com preços atrativos e que cabem no bolso.",
       botaoTexto: "Contrate",
@@ -31,20 +30,19 @@ const Carrossel = () => {
     },
     {
       tipo: "imagem",
-      conteudo:{imagemSeguroDeVida} ,
+      conteudo: imagemSeguroDeVida,
       titulo: "Seguro de Vida",
-      descricao:"Garanta tranquilidade para você e seu futuro.",
+      descricao: "Garanta tranquilidade para você e seu futuro.",
       botaoTexto: "Contrate agora",
       botaoLink: "#slide1",
       classe: "slide-estilo-3",
     },
   ];
 
-  // Clona o último slide e o primeiro para criar loop
   const slides = [
-    slidesOriginais[slidesOriginais.length - 1], // Último slide original no início
+    slidesOriginais[slidesOriginais.length - 1],
     ...slidesOriginais,
-    slidesOriginais[0], // Primeiro slide original no final
+    slidesOriginais[0],
   ];
 
   useEffect(() => {
@@ -63,7 +61,7 @@ const Carrossel = () => {
     setSlideAtual((prev) => {
       const novoIndex = prev + 1;
       if (novoIndex >= slides.length) {
-        return prev; 
+        return prev;
       }
       return novoIndex;
     });
@@ -74,24 +72,21 @@ const Carrossel = () => {
     setSlideAtual((prev) => {
       const novoIndex = prev - 1;
       if (novoIndex < 0) {
-        return prev; 
+        return prev;
       }
       return novoIndex;
     });
   };
 
-  // Monitora mudanças no slideAtual para reiniciar o loop
   useEffect(() => {
     if (slideAtual === 0) {
-      // Quando chegar no clone do último slide, volta para o original
       setTimeout(() => {
         slidesRef.current.style.transition = "none";
         setSlideAtual(slidesOriginais.length);
-      }, 800); // Tempo igual à duração da transição
+      }, 800);
     }
 
     if (slideAtual === slides.length - 1) {
-      // Quando chegar no clone do primeiro slide, volta para o original
       setTimeout(() => {
         slidesRef.current.style.transition = "none";
         setSlideAtual(1);
@@ -120,7 +115,7 @@ const Carrossel = () => {
                   slide.classe === "slide-estilo-1" ? "botao-centralizado" : ""
                 }`}
               >
-          <span className="botao-texto">{slide.botaoTexto}</span>
+                <span className="botao-texto">{slide.botaoTexto}</span>
               </a>
             </div>
             {slide.tipo === "imagem" ? (

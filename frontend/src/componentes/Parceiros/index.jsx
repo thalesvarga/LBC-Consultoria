@@ -1,17 +1,27 @@
 import "./parceiros.css";
 import React from 'react';
+import amil from "/src/assets/imagens/amil.png";
+import amplaSaude from "/src/assets/imagens/ampla-saude-seeklogo.png";
+import hapvida from "/src/assets/imagens/hapvida.webp";
+import notremade from "/src/assets/imagens/notremade.png";
+import preventSenior from "/src/assets/imagens/prevent-senior.png";
+import sulamerica from "/src/assets/imagens/sulamerica-saude-logo.png";
+import bradesco from "/src/assets/imagens/bradesco.png";
+import omint from "/src/assets/imagens/omint-logo.png";
+import portoSeguro from "/src/assets/imagens/porto-seguro.png";
+import unimed from "/src/assets/imagens/unimed.png";
 
 const parceirosData = [
-  { image: "/src/assets/imagens/amil.png"},
-  { image: "/src/assets/imagens/ampla-saude-seeklogo.png"},
-  { image: "/src/assets/imagens/hapvida.webp"},
-  { image: "/src/assets/imagens/notremade.png" },
-  { image: "/src/assets/imagens/prevent-senior.png" },
-  { image: "/src/assets/imagens/sulamerica-saude-logo.png"},
-  { image: "/src/assets/imagens/bradesco.png"},
-  { image: "/src/assets/imagens/omint-logo.png"},
-  { image: "/src/assets/imagens/porto-seguro.png"},
-  { image: "/src/assets/imagens/unimed.png"},
+  { imagem: amil},
+  { imagem: amplaSaude},
+  { imagem: hapvida},
+  { imagem: notremade },
+  { imagem: preventSenior},
+  { imagem: sulamerica},
+  { imagem: bradesco},
+  { imagem: omint},
+  { imagem: portoSeguro},
+  { imagem: unimed},
 ]
 
 const Parceiros = () => {
@@ -27,14 +37,14 @@ const Parceiros = () => {
             <div className="parceiros-linha-esquerda">
             <ul>
                 {linhaEsquerda.map((parceiro, index) =>(
-                <li key={index}><img src={parceiro.image} alt= {index + 1} /></li>
+                <li><img src={parceiro.imagem} alt= {index + 1} /></li>
                 ))}
             </ul>
             </div>
             <div className="parceiros-linha-direita">
             <ul>
                 {linhaDireita.map((parceiro, index) =>(
-                <li><img src={parceiro.image} alt= {index + 1} /></li>
+                <li><img src={parceiro.imagem} alt= {index + 1} /></li>
                 ))}
             </ul>
             </div>
