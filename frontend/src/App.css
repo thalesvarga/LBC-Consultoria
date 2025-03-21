@@ -26,7 +26,6 @@ body::before {
     left: 0%;
     width: 90%;
     height: 200%;
-    /* background: url('./src/assets/imagens/line 1.svg') no-repeat center; */
     background-size: 20% 100%; 
     pointer-events: none;
     z-index: -10;

@@ -87,10 +87,6 @@ const Missao = () => {
 
   return (
 <section className="missao" id="Sobre" ref={sectionRef}>
-      {/* <img
-        src="./src/assets/imagens/formas-missao.svg"
-        alt="formas geometricas"
-      /> */}
       <div className="missao-titulo">
   <div className="missao-titulo-fundo"></div>
   <h2 ref={tituloRef}>Nossa Missão</h2>
