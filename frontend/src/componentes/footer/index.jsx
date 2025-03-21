@@ -1,6 +1,9 @@
 import "./footer.css";
 import React from "react";
 import logo from "/src/assets/imagens/lbc-logo-branco.webp";
+import facebook from "/src/assets/imagens/facebook.png"
+import instagram from "/src/assets/imagens/instagram.svg"
+import whats from "/src/assets/imagens/whats.svg"
 
 const Footer = () => {
   return (
@@ -17,7 +20,7 @@ const Footer = () => {
           target="_blank"
           rel="noopener noreferrer"
         >
-          <img src="./src/assets/imagens/facebook.png" alt="Facebook" />
+          <img src={facebook} alt="Facebook" />
         </a>
 
         <a
@@ -25,7 +28,7 @@ const Footer = () => {
           target="_blank"
           rel="noopener noreferrer"
         >
-          <img src="./src/assets/imagens/instagram.svg" alt="Instagram" />
+          <img src={instagram} alt="Instagram" />
         </a>
       </div>
 
@@ -35,7 +38,7 @@ const Footer = () => {
           target="_blank"
           rel="noopener noreferrer"
         >
-          <img src="./src/assets/imagens/whats.svg" alt="WhatsApp" />
+          <img src={whats} alt="WhatsApp" />
         </a>
       </div>
     </div>

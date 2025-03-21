@@ -6,11 +6,9 @@
   align-items: center;
   justify-content: center;
   position: relative;
-  background: url("./src/assets/imagens/FUNDO-banner.png");
+  background: url("/src/assets/imagens/FUNDO-banner.png");
   background-repeat: no-repeat;
   background-size: cover;
-  object-fit: cover;
-
 }
 
 .sobre-mim-conteudo {

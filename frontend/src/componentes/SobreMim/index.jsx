@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import "./sobreMim.css";
 import { Link } from "react-router-dom"; 
 import logo from "/src/assets/imagens/Logo-Trianguo.svg"
+import setaParaBaixo from "/src/assets/imagens/arrow-down.png"
 
 const SobreMim = ({ subtitulo, texto, mostrarBotao = true }) => {
   const [carregado, setCarregado] = useState(false);
@@ -61,7 +62,7 @@ const SobreMim = ({ subtitulo, texto, mostrarBotao = true }) => {
           <Link to="/captacao" className="botao-cta fade-in-up">Fale com um dos nossos consultores</Link>
         )}
       </div>
-        <img className="sobre-mim-seta" src="/src/assets/imagens/arrow-down.png" alt="seta para baixo"/>
+        <img className="sobre-mim-seta" src={setaParaBaixo} alt="seta para baixo"/>
     </section>
   );
 };
