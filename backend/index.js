@@ -1,28 +1,46 @@
-
-
 const express = require("express");
 const { google } = require("googleapis");
 const cors = require("cors");
-const path = require("path");
 require('dotenv').config();
 
-
 const app = express();
-app.use(cors({
-  origin: 'http://localhost:5173',
-  methods: ['POST']
-}));
 app.use(express.json());
 
-// Autenticação com Google Sheets (CAMINHO ABSOLUTO)
+
+const allowedOrigins = [
+  'http://localhost:5173', 
+  'https://lbc-consultoria.onrender.com' 
+];
+
+app.use(cors({
+  origin: function (origin, callback) {
+    if (!origin || allowedOrigins.includes(origin)) {
+      callback(null, true);
+    } else {
+      callback(new Error('Not allowed by CORS'));
+    }
+  },
+  methods: ['POST']
+}));
+
+
+console.log("GOOGLE_APPLICATION_CREDENTIALS:", process.env.GOOGLE_APPLICATION_CREDENTIALS);
+console.log("SPREADSHEET_ID:", process.env.SPREADSHEET_ID);
+
+if (!process.env.GOOGLE_APPLICATION_CREDENTIALS || !process.env.SPREADSHEET_ID) {
+  console.error("Erro: GOOGLE_APPLICATION_CREDENTIALS ou SPREADSHEET_ID não configurados no .env");
+  process.exit(1); 
+}
+
+
 const auth = new google.auth.GoogleAuth({
-  keyFile:  process.env.GOOGLE_APPLICATION_CREDENTIALS,
+  credentials: JSON.parse(process.env.GOOGLE_APPLICATION_CREDENTIALS),
   scopes: ["https://www.googleapis.com/auth/spreadsheets"],
 });
 
 const sheets = google.sheets({ version: "v4", auth });
 
-// Mapeamento de serviços
+
 const mapeamentoServicos = {
   'empresarial': [
     'ID do Lead', 'Nome do Lead', 'Nome da Empresa', 'Plano Escolhido',
@@ -62,30 +80,43 @@ const mapeamentoServicos = {
   ]
 };
 
-// Endpoint principal
+
+(async () => {
+  try {
+    const response = await sheets.spreadsheets.get({
+      spreadsheetId: process.env.SPREADSHEET_ID,
+    });
+    console.log("Planilha acessada com sucesso:", response.data.properties.title);
+  } catch (error) {
+    console.error("Erro ao acessar a planilha:", error.message);
+    process.exit(1); 
+  }
+})();
+
+
 app.post("/enviar-dados", async (req, res) => {
+  console.log("Requisição recebida:", req.body);
+
   const { formData, servico } = req.body;
 
-  // Validação básica
   if (!formData || !servico || !mapeamentoServicos[servico]) {
+    console.error("Dados inválidos ou serviço não reconhecido.");
     return res.status(400).json({ error: "Dados inválidos ou serviço não reconhecido." });
   }
 
   try {
     const spreadsheetId = process.env.SPREADSHEET_ID;
-
     const colunasServico = mapeamentoServicos[servico];
 
-   
+ 
     const response = await sheets.spreadsheets.values.get({
       spreadsheetId,
-      range: "Folha1!A:A", 
+      range: "Folha1!A:A",
     });
-
     const linhas = response.data.values || [];
     const proximaLinha = linhas.length + 1;
 
-    // 2. Mapeia os valores na ordem correta
+ 
     const valores = colunasServico.map(coluna => {
       switch (coluna) {
         case 'ID do Lead': return `LBC-${Date.now()}`;
@@ -106,17 +137,20 @@ app.post("/enviar-dados", async (req, res) => {
       }
     });
 
-   
+    console.log("Valores mapeados:", valores);
+
+
     await sheets.spreadsheets.values.append({
       spreadsheetId,
-      range: `Folha1!A${proximaLinha}:Z${proximaLinha}`, 
+      range: `Folha1!A${proximaLinha}:Z${proximaLinha}`,
       valueInputOption: "RAW",
       resource: { values: [valores] },
     });
 
+    console.log("Dados enviados com sucesso para a planilha.");
     res.status(200).json({ message: "Dados enviados com sucesso!" });
   } catch (error) {
-    console.error("Erro detalhado:", error);
+    console.error("Erro detalhado:", error.response ? error.response.data : error.message);
     res.status(500).json({ error: `Erro interno: ${error.message}` });
   }
 });

@@ -1,4 +1,4 @@
-*{
+* {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
@@ -8,37 +8,56 @@ html {
   scroll-behavior: smooth;
 }
 
-body{
-
-    font-family: 'Open Sans', sans-serif;
-    overflow-x:hidden;
-    position: relative;
-    height: 100vh;
-    scroll-behavior: smooth;
-    background: #374a6f;
-
-}   
-
-body::before {
-    content: "";
-    position: absolute;
-    top: 50%;
-    left: 0%;
-    width: 90%;
-    height: 200%;
-    background-size: 20% 100%; 
-    pointer-events: none;
-    z-index: -10;
-    animation: fadeInBody 5s ease-in forwards;
-    transform: rotateY(-10deg);
+body {
+  font-family: "Open Sans", sans-serif;
+  overflow-x: hidden;
+  position: relative;
+  height: 100vh;
+  scroll-behavior: smooth;
+  background: #374a6f;
 }
 
-  @keyframes fadeInBody {
-    from {
-      opacity: 0;
-    }
-    to {
-      opacity: 0.5;
-    }
-  }
+.app {
+  opacity: 1;
+  transition: opacity 1s ease-in-out;
+}
 
+.header-carrossel-container {
+  opacity: 0;
+  transition: opacity 1s ease-in-out;
+}
+
+.app.visivel .header-carrossel-container {
+  opacity: 1;
+}
+
+.app.visivel .conteudo-principal {
+  opacity: 1;
+  transition: opacity 1s ease-in-out 0.5s;
+}
+
+.conteudo-principal {
+  opacity: 0;
+}
+
+.app .header-secundario {
+  position: fixed;
+  top: 0;
+  z-index: 1000;
+}
+
+@keyframes aparecer {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInBody {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 0.5;
+  }
+}

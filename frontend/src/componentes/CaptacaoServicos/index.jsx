@@ -353,14 +353,12 @@ const CaptacaoServicos = () => {
   const handleSubmit = async () => {
     const novosErros = {};
 
-    // Valida campos obrigatórios
     conteudo.campos.forEach((campo) => {
       if (campo.obrigatorio && !formData[campo.name]) {
         novosErros[campo.name] = "Este campo é obrigatório.";
       }
     });
 
-    // Valida formatos (email, CNPJ, etc.)
     if (formData.email && !validarEmail(formData.email)) {
       novosErros.email = "E-mail inválido.";
     }

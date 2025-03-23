@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import "./formulario.css";
-import Captacao from "../Captacao"; // Importa o componente Captacao
+import Captacao from "../Captacao";
 
 function Formulario({ campos, onSubmit, estilo }) {
   const [formData, setFormData] = useState({});
@@ -30,7 +30,6 @@ function Formulario({ campos, onSubmit, estilo }) {
   return (
     <section className="formulario" style={estilo}>
       <div className="formulario-contato">
-        {/* Renderiza o Captacao ou o formulário diretamente */}
         {campos ? (
           <form onSubmit={handleSubmit}>
             {campos.map((campo, index) => (

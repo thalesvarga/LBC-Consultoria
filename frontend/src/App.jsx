@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import {
   BrowserRouter as Router,
   Routes,
@@ -15,44 +15,69 @@ import Contato from "/src/componentes/Contato";
 import CaptacaoServicos from "/src/componentes/CaptacaoServicos";
 import Footer from "/src/componentes/footer";
 import Carrossel from "./componentes/Carrossel";
-import PopUp from "./componentes/PopUp";
-
+import "./App.css";
 
 function App() {
   const location = useLocation();
-
   const isHomePage = location.pathname === "/";
+  const [animacaoConcluida, setAnimacaoConcluida] = useState(false);
+
+  const handleAnimacaoCompleta = () => {
+    setAnimacaoConcluida(true);
+  };
 
   return (
-    <div className="App">
-      {isHomePage ? <Header /> : <HeaderSecundario />}
+    <div className={`app ${animacaoConcluida ? "visivel" : ""}`}>
       <Routes>
+        {/* Rota Home */}
         <Route
           path="/"
           element={
             <>
-            <Carrossel />
+
+              {/* Header e Carrossel (aparecem após a animação) */}
+              <div className="header-carrossel-container">
+                <Header />
+                <Carrossel />
+              </div>
+
+              {/* Sobre Mim (visível inicialmente) */}
               <SobreMim
-                titulo="Especialistas em planos de saúde."
-                subtitulo="Na LBC, oferecemos soluções personalizadas"
-                // texto="para proteger você, sua família ou sua empresa, contamos com a expertise de mais de 15 anos no mercado."
+                titulo=""
+                subtitulo="Na LBC, oferecemos soluções personalizadas para você"
+                onAnimacaoCompleta={handleAnimacaoCompleta}
               />
-          
-              <Produtos />
-              <Missao />  
-              {/* <PopUp /> */}
-              <Parceiros />
-              <Contato />
-              <Footer />
+              {/* Restante do site (aparece após a animação) */}
+              <div className="conteudo-principal">
+                <Produtos />
+                <Missao />
+                <Parceiros />
+                <Contato />
+                <Footer />
+              </div>
             </>
           }
         />
 
-        {/* Rota para captacao com serviço específico */}
-        <Route path="/captacao/:servico" element={<CaptacaoServicos />} />
-
-        {/* Rota para captacao geral */}
-        <Route path="/captacao" element={<CaptacaoServicos />} />
+        {/* Rotas internas */}
+        <Route
+          path="/captacao/:servico"
+          element={
+            <>
+              <HeaderSecundario />
+              <CaptacaoServicos />
+            </>
+          }
+        />
+        <Route
+          path="/captacao"
+          element={
+            <>
+              <HeaderSecundario />
+              <CaptacaoServicos />
+            </>
+          }
+        />
       </Routes>
     </div>
   );
