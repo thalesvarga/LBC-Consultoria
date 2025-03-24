@@ -5,9 +5,10 @@
   max-width: 1840px;
   margin: 0 auto;
   overflow: hidden;
-  background: #374a6f;
+  background: #f9f9f9;
   min-height: 50vh;
   /* background: rgb(238, 238, 238); */
+  color: #0e2c72;
 }
 
 /* ==============Slides=============== */
@@ -21,35 +22,46 @@
   height: 420px;
   display: flex;
   align-items: center;
-  margin-top:8rem;
+  margin-top: 8rem;
 }
 
 .slide-estilo-1 {
   position: relative;
- 
 }
+
 .slide-estilo-1 h2,
-.slide-estilo-1 p{
+.slide-estilo-1 p {
   text-align: center;
-  width: 40%;;
+  width: 40%;
   margin-left: 6rem;
-
+  opacity: 0;
+  transform: scale(0.8);
+  animation: scaleUp 1s ease-out forwards;
 }
 
-.slide-estilo-3 .imagem-slide{
-  background-position: top center; 
-  background-size: cover; 
+@keyframes scaleUp {
+  from {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.slide-estilo-3 .imagem-slide {
+  background-position: top center;
+  background-size: cover;
   transform: scaleX(-1);
 }
 
-.slide-estilo-3{
+.slide-estilo-3 {
   background: rgb(238, 238, 238);
-  color: #0e2c72;
 }
 .slide-estilo-3 p,
-.slide-estilo-3 h2{
+.slide-estilo-3 h2 {
   width: 55%;
-  color: #0e2c72;
 }
 
 /* Imagem do Slide */
@@ -65,6 +77,7 @@
   width: 60%;
   height: 100%;
   overflow: hidden;
+  color: #0e2c72;
 }
 
 .video-slide video {
@@ -74,12 +87,11 @@
   background-position: center;
 }
 
-
 .conteudo-slide {
   width: 50%;
   padding: 20px;
   margin-left: 8rem;
-  color: white;
+  color: #0e2c72;
   text-align: left;
   z-index: 10;
   display: flex;
@@ -98,7 +110,7 @@
   font-weight: 300;
 }
 
-.botao{
+.botao {
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -123,7 +135,7 @@
 }
 
 .botao-centralizado {
-  position: absolute; 
+  position: absolute;
   top: 63%;
   left: 64%;
   transform: translate(-50%, -50%);
@@ -131,7 +143,6 @@
   font-size: 1rem;
   z-index: 10;
 }
-
 
 .botao-navegacao {
   position: absolute;
@@ -189,43 +200,40 @@
 
 @media (max-width: 768px) {
   .carrossel {
-    min-height: 30vh; 
+    min-height: 30vh;
   }
 
   .slide {
     height: 220px;
     margin-top: 5rem;
-
   }
   .conteudo-slide {
-    width: 90%; 
-    margin-left: 2rem; 
-    padding: 10px; 
-
-  
+    width: 90%;
+    margin-left: 2rem;
+    padding: 10px;
   }
   .titulo {
-    font-size: 0.9rem; 
+    font-size: 0.9rem;
   }
 
   .descricao {
-    font-size: 0.8rem; 
+    font-size: 0.8rem;
   }
 
   .botao {
-    padding: 0.5em 1em; 
+    padding: 0.5em 1em;
     font-size: 0.7rem;
   }
 
   .imagem-slide,
   .video-slide {
-    width: 100%; 
+    width: 100%;
     /* height: auto;  */
   }
 
   .botao-navegacao {
-    font-size: 18px; 
-    padding: 5px 10px; 
+    font-size: 18px;
+    padding: 5px 10px;
   }
 
   .botao-navegacao.anterior {

@@ -5,11 +5,11 @@ import { Link } from "react-router-dom";
 import bordaInterna from "/src/assets/imagens/bordainterna-card.png"
 
 import empresarial from "/src/assets/imagens/empresarial.png";
-import adesao from "/src/assets/imagens/plano_por_adesao.png";
+import adesao from "/src/assets/imagens/plano_por_adesao.jpg";
 import melhorIdade from "/src/assets/imagens/melhor idade.png";
 import odontologico from "/src/assets/imagens/odontologico.png";
-import pet from "/src/assets/imagens/pet.jpg";
-import seguroVida from "/src/assets/imagens/seguro_de_vida.png";
+import pet from "/src/assets/imagens/plano-pet.jpg";
+import seguroVida from "/src/assets/imagens/seguro-de-vida4.jpg";
 
 const cardsData = [
   {
@@ -23,7 +23,7 @@ const cardsData = [
   {
     id: 2,
     titulo: "Coletivo por Adesão",
-    descricao: "Descrição do Coletivo por Adesão.",
+    descricao: "Para você que faz parte de uma entidade de classe profissional ou sindicato.",
     beneficios: [],
     imagem: adesao,
     servico: "por-adesao",
@@ -31,7 +31,7 @@ const cardsData = [
   {
     id: 3,
     titulo: "Plano Melhor Idade",
-    descricao: "Descrição do Plano Melhor Idade.",
+    descricao: "Ideal para viver a melhor fase da vida.",
     beneficios: [],
     imagem: melhorIdade,
     servico: "melhor-idade",
@@ -39,7 +39,7 @@ const cardsData = [
   {
     id: 4,
     titulo: "Plano Odontológico",
-    descricao: "Descrição do Plano Odontológico.",
+    descricao: "A saúde do seu corpo começa com a saúde Bucal.",
     beneficios: [],
     imagem: odontologico,
     servico: "odontologico",
@@ -47,7 +47,7 @@ const cardsData = [
   {
     id: 5,
     titulo: "Plano Pet",
-    descricao: "Descrição do Plano Pet.",
+    descricao: "O cuidado que seu melhor amigo preisa e merece.",
     beneficios: [],
     imagem: pet,
     servico: "plano-pet",
@@ -55,7 +55,7 @@ const cardsData = [
   {
     id: 6,
     titulo: "Seguro de Vida",
-    descricao: "Descrição do Seguro de Vida.",
+    descricao: "Mais tranquilidade para você e a sua familia.",
     beneficios: [],
     imagem: seguroVida,
     servico: "seguro-de-vida",
@@ -86,7 +86,7 @@ const Produtos = () => {
         });
       },
       {
-        threshold: 1.0,
+        threshold: 0.5,
       }
     );
 

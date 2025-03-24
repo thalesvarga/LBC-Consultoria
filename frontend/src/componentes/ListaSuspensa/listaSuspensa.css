@@ -19,3 +19,8 @@ select:focus {
     box-shadow: 0 0 5px rgba(40, 80, 160, 0.5);
 }
 
+.header-lista-suspensa {
+    display: inline-block;
+    margin: 0 10px;
+  }
+

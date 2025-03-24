@@ -22,7 +22,7 @@ const Carrossel = () => {
     {
       tipo: "video",
       conteudo: videoCarrossel,
-      titulo: "Planos Empresariais *",
+      titulo: "Planos Empresariais",
       descricao: "Com preços atrativos e que cabem no bolso.",
       botaoTexto: "Contrate",
       botaoLink: "#slide2",

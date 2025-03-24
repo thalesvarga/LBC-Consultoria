@@ -45,7 +45,7 @@ const HeaderPrincipal = () => {
               <a href="#Servicos">Serviços</a>
             </li>
             <li>
-              <a href="#Parceiros">Parceiros</a>
+              <a href="#Parceiros">Blog</a>
             </li>
             <li>
               <a href="#Contato">Contato</a>

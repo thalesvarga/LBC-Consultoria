@@ -2,10 +2,14 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  min-height: 10vh;
-  background: white;
+  min-height: 15vh;
   width: 100%;
   margin: 0 auto;
+  /* box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1); */
+  background: url("src/assets/imagens/FUNDO banner.svg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
 }
 
 .sobre-mim-conteudo {
@@ -14,31 +18,17 @@
   justify-content: center;
   text-align: center;
   width: 100%;
+  margin-bottom: 2rem;
 }
 
-.sobre-mim h6{
+.sobre-mim h6 {
   font-size: 1rem;
   font-weight: 400;
- 
+  color: #333;
 }
 
 .imagem {
   max-width: 50px;
-}
-
-.botao-cta {
-  background: #2850a0;
-  border: none;
-  color: white;
-  border-radius: 24px;
-  padding: 0.8rem 1.5rem;
-  font-size: 1rem;
-  cursor: pointer;
-  transition: all 0.3s ease;
-}
-
-.botao-cta:hover {
-  background: #1c3a7d;
 }
 
 .sobre-mim-seta {
@@ -46,16 +36,32 @@
   width: 30px;
   height: 30px;
   animation: moverSeta 1.5s infinite ease-in-out;
+  position: absolute;
+  left: 48.5%;
+  top: 65%;
+}
+
+.oculta {
+  display: none;
+}
+
+.visivel {
+  display: block;
 }
 
 @keyframes moverSeta {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-10px); }
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
 }
 
 @media (max-width: 768px) {
   .sobre-mim {
-    min-height: 25vh; 
+    min-height: 25vh;
   }
 
   .imagem {
@@ -63,11 +69,11 @@
   }
 
   .sobre-mim-conteudo p {
-    font-size: 0.8rem; 
+    font-size: 0.8rem;
   }
 
   .botao-cta {
-    font-size: 0.7rem; 
+    font-size: 0.7rem;
     padding: 0.6rem 1.2rem;
   }
 }

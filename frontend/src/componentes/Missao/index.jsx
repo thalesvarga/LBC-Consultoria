@@ -1,97 +1,88 @@
+import React, { useState, useEffect, useRef } from "react";
 import "./missao.css";
-import React, { useEffect, useState, useRef } from "react";
-import { Link } from "react-router-dom";
 
 const Missao = () => {
-  const sectionRef = useRef(null); // Referência para a seção
+  const sectionRef = useRef(null);
   const tituloRef = useRef(null);
   const paragrafoRef = useRef(null);
-  const numerosRef = useRef(null);
+  const numerosContainerRef = useRef(null);
   const botaoRef = useRef(null);
-
-  const [isVisible, setIsVisible] = useState(false); // Estado para verificar se a seção está visível
+  const [isVisible, setIsVisible] = useState(false);
 
   useEffect(() => {
-    // Configura o Intersection Observer
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
-            setIsVisible(true); // Ativa o estado quando a seção é visível
-            observer.unobserve(entry.target); // Para de observar após detectar
+            setIsVisible(true);
+            observer.unobserve(entry.target);
           }
         });
       },
-      {
-        threshold: 0.5, // A animação começa quando 50% da seção estiver visível
-      }
+      { threshold: 0.5 } // Ajuste para garantir que a seção esteja visível
     );
 
-    if (sectionRef.current) {
-      observer.observe(sectionRef.current); // Começa a observar a seção
-    }
+    if (sectionRef.current) observer.observe(sectionRef.current);
 
     return () => {
-      if (sectionRef.current) {
-        observer.unobserve(sectionRef.current); // Limpa o observador ao desmontar
-      }
+      if (sectionRef.current) observer.unobserve(sectionRef.current);
     };
   }, []);
 
   useEffect(() => {
-    if (isVisible) {
+    if (!isVisible) return;
 
-      setTimeout(() => {
-        tituloRef.current.classList.add("visible");
-      }, 0);
+    // 1. Animação do título (0s)
+    tituloRef.current.style.animation = "moveTitulo 1s ease-out forwards";
 
-      // Animação dos números
-      setTimeout(() => {
-        numerosRef.current.classList.add("visible");
-        // Contagem dos números
-        const counters = numerosRef.current.querySelectorAll("h3");
-        counters.forEach((counter) => {
-          const target = +counter.textContent.replace("+", ""); // Remove o "+" e converte para número
-          const duration = 2; // Duração da contagem em segundos
-          const increment = target / (duration * 60); // 60 FPS
+    // 2. Animação do parágrafo (1s após o título)
+    setTimeout(() => {
+      paragrafoRef.current.style.animation = "moveParagrafo 1s ease-out forwards";
+    }, 1000);
 
-          let current = 0;
-          const updateCounter = () => {
-            if (current < target) {
-              current += increment;
-              counter.textContent = `+${Math.floor(current)}`;
-              requestAnimationFrame(updateCounter);
-            } else {
-              counter.textContent = `+${target}`;
-            }
-          };
+    // 3. Animação dos números e subtítulos (2s após o título)
+    setTimeout(() => {
+      numerosContainerRef.current.style.animation = "moveNumeros 1s ease-out forwards";
 
-          updateCounter();
-        });
-      }, 2000);
+      // Inicia a contagem dos números
+      const counters = numerosContainerRef.current.querySelectorAll("h3");
+      counters.forEach((counter) => {
+        const target = +counter.dataset.value;
+        let current = 0;
+        const duration = 2000; // 2 segundos
+        const increment = target / (duration / 10); // Incremento a cada 10ms
 
-      // Animação do parágrafo
-      setTimeout(() => {
-        paragrafoRef.current.classList.add("visible");
-      }, 1000);
+        const timer = setInterval(() => {
+          current += increment;
+          counter.textContent = `+${Math.floor(current)}`;
+          if (current >= target) {
+            clearInterval(timer);
+            counter.textContent = `+${target}`;
+          }
+        }, 10);
+      });
 
-      setTimeout(() => {
-        numerosRef.current.classList.add("visible");
-      }, 2500);
+      // Anima subtítulos dos números
+      const subtitulos = numerosContainerRef.current.querySelectorAll("h4");
+      subtitulos.forEach((subtitulo) => {
+        subtitulo.style.animation = "fadeIn 1s ease-out forwards";
+      });
+    }, 2000);
 
-      setTimeout(() => {
-        botaoRef.current.classList.add("visible");
-      }, 4000);
-    }
+    // 4. Animação do botão (3s após o título)
+    setTimeout(() => {
+      botaoRef.current.style.animation = "moveBotao 1s ease-out forwards";
+    }, 3000);
   }, [isVisible]);
 
   return (
-<section className="missao" id="Sobre" ref={sectionRef}>
+    <section className="missao" id="Sobre" ref={sectionRef}>
       <div className="missao-titulo">
-  <div className="missao-titulo-fundo"></div>
-  <h2 ref={tituloRef}>Nossa Missão</h2>
+        <h2 ref={tituloRef}>Nossa Missão</h2>
         <p ref={paragrafoRef}>
-          <strong>Na LBC, não vendemos planos de saúde: cuidamos da sua jornada.</strong>
+          <strong>
+            Na LBC, não vendemos planos de saúde: cuidamos da sua jornada.
+          </strong>
           <br />
           Há 15 anos, ajudamos famílias e empresas a escolher a proteção ideal,
           com: <br />
@@ -106,21 +97,20 @@ const Missao = () => {
           realmente importa.
         </p>
       </div>
-      <div className="missao-numeros" ref={numerosRef}>
+      <div className="missao-numeros" ref={numerosContainerRef}>
         <div className="missao-vidas-protegidas">
-          <h3>+3000</h3>
+          <h3 data-value="3000">+0</h3>
           <h4>Vidas Protegidas</h4>
         </div>
         <div className="missao-empresas-ativas">
-          <h3>100</h3>
+          <h3 data-value="100">+0</h3>
           <h4>Empresas Ativas</h4>
         </div>
-        <Link to="/captacao" className="botao-cotacao" ref={botaoRef}>
-        Faça uma cotação
-      </Link>
+        <a href="/captacao" className="botao-cotacao" ref={botaoRef}>
+          Faça uma cotação
+        </a>
       </div>
-
-</section>
+    </section>
   );
 };
 

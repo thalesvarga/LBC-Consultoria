@@ -6,9 +6,7 @@
   padding: 3rem;
   position: relative;
   align-items: center;
-  justify-content: space-between; 
-  /* box-shadow: 0 -4px 6px -4px rgba(0, 0, 0, 0.3),
-    0 4px 6px -4px rgba(0, 0, 0, 0.3); */
+  justify-content: space-between;
 }
 
 .missao-titulo {
@@ -19,7 +17,6 @@
 }
 
 .missao-titulo h2 {
-  display: flex;
   z-index: 1;
   padding: 3rem 0 3rem 5rem;
   width: 100%;
@@ -27,12 +24,8 @@
   text-align: center;
   font-weight: 100;
   font-size: 2rem;
-  /* background: white; */
-  /* box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3),
-    inset 0 1px 2px rgba(255, 255, 255, 0.5); */
   opacity: 0;
   transform: translateY(-50px);
-  animation: moveTitulo 5s ease-out forwards;
 }
 
 .missao-titulo p {
@@ -42,7 +35,6 @@
   line-height: 2rem;
   opacity: 0;
   transform: translateY(50px);
-  animation: moveParagrafo 4s ease-out 2s forwards;
 }
 
 .missao-numeros {
@@ -56,7 +48,6 @@
   width: 50%;
   opacity: 0;
   transform: translateX(-50px);
-  animation: moveNumeros 3s ease-out 2s forwards;
 }
 
 .missao-vidas-protegidas,
@@ -67,7 +58,8 @@
 .missao-vidas-protegidas h3,
 .missao-empresas-ativas h3 {
   font-size: 2rem;
-  margin-bottom: 0.5rem;
+  margin-bottom: 1.5rem;
+  transform: translateY(20px);
 }
 
 .missao-vidas-protegidas h4,
@@ -75,10 +67,9 @@
   font-size: 1.2rem;
   font-weight: 500;
   opacity: 0;
-  animation: fadeIn 3s ease-out 1s forwards;
 }
 
-.missao a {
+.missao a.botao-cotacao {
   background-color: #ffa535;
   margin-top: 2rem;
   color: white;
@@ -88,44 +79,16 @@
   font-weight: bold;
   border-radius: 24px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-  transition: opacity 0.5s ease;
   cursor: pointer;
   opacity: 0;
-  /* transform: translateX(50px); */
-  animation: moveBotao 5s ease-out 2s forwards;
-  display: flex;
-  justify-content: flex-start;
-  align-items: flex-start;
-  text-align: center;
-  height: 50px;
-  width: 27%;
-  margin-left: 4rem;
-}
-
-.missao a:hover {
-  opacity: 0.8;
-  background-color: rgba(255, 181, 106, 0.976);
-}
-
-.missao img {
-  position: absolute;
-  width: 60%;
-  z-index: -2;
+  transform: scale(0.8);
 }
 
 /* ====== ANIMAÇÕES ======= */
-
-@keyframes moveBotao {
+@keyframes moveTitulo {
   to {
     opacity: 1;
-    transform: translateX(0);
-  }
-}
-
-@keyframes moveNumeros {
-  to {
-    opacity: 1;
-    transform: translateX(0);
+    transform: translateY(0);
   }
 }
 
@@ -136,16 +99,23 @@
   }
 }
 
-@keyframes moveTitulo {
+@keyframes moveNumeros {
   to {
     opacity: 1;
-    transform: translateY(0);
+    transform: translateX(0);
   }
 }
 
 @keyframes fadeIn {
   to {
     opacity: 1;
+  }
+}
+
+@keyframes moveBotao {
+  to {
+    opacity: 1;
+    transform: scale(1);
   }
 }
 
